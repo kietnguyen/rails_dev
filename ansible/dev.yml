@@ -1,0 +1,10 @@
+- hosts: localhost
+  remote_user: vagrant
+  become_user: yes
+  vars_files:
+    - vars.yml
+  roles:
+    - centos7-setup
+    - mariadb
+    - ruby/imagemagick
+    - ruby/rvm

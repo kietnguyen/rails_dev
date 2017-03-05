@@ -1,0 +1,7 @@
+imagemagick_packages:
+  - ImageMagick
+
+image_optimization_packages:
+  - pngquant
+  - jpegoptim
+

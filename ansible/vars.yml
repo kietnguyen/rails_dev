@@ -1,0 +1,3 @@
+timezone: Asia/Ho_Chi_Minh
+ruby_version: 2.3.3
+app_user: vagrant

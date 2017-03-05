@@ -1,0 +1,20 @@
+---
+- name: Add MariaDB 10.1 repository
+  yum_repository:
+    name: MariaDB
+    description: MariaDB 10.1 repository
+    baseurl: http://yum.mariadb.org/10.1/centos7-amd64
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck: yes
+
+- name: Install MariaDB
+  yum: name={{ item }} state=present
+  with_items:
+    - MariaDB-server
+    - MariaDB-client
+
+- name: Install MySQL-python for Ansible
+  yum: name=MySQL-python state=installed
+
+- name: Turn on MariaDB
+  service: name=mariadb state=started enabled=yes

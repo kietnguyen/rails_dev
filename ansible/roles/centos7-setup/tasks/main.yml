@@ -1,0 +1,20 @@
+---
+- name: Update to latest packages
+  yum: name=* state=latest
+
+# Disable SElinux
+- name: Install SElinux module
+  yum: name=libselinux-python state=present
+
+- name: Disable SElinux
+  selinux: state=disabled
+
+# Time zone
+- name: Set time zone
+  command: timedatectl set-timezone {{ timezone }}
+
+- name: Install ntp
+  yum: name=ntp state=present
+
+- name: Boot and enable ntp
+  service: name=ntpd enabled=yes state=started

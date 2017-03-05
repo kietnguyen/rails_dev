@@ -1,0 +1,5 @@
+- name: Install imagemagick and image_optimization packages
+  yum: pkg={{ item }}
+  with_flattened:
+    - "{{ imagemagick_packages }}"
+    - "{{ image_optimization_packages }}"
